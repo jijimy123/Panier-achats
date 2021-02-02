@@ -1,15 +1,16 @@
-import Pied2Page from './Pied2Page';
 import Entete from "./Entete";
+import Pied2Page from "./Pied2Page";
+import ListeProduits from "./ListeProduits";
 import "./Page.css";
 
 export default function Page() {
-  return( 
+  return (
     <div className="Page">
       <Entete />
       <section className="contenuPrincipal">
-        Le contenu principal
+        <ListeProduits />
       </section>
       <Pied2Page />
     </div>
-    );
+  );
 }

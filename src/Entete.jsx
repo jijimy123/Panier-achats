@@ -1,17 +1,17 @@
+import "./Entete.css";
 
 export default function Entete(props) {
-  return(
+  return (
     <header>
       <div>Logo</div>
       <ul className="NavPrincipale">
         <li>Produits</li>
         <li>A propos de nous</li>
-    
       </ul>
       <ul className="navUtil">
         <li>Panier</li>
         <li>Mon compte</li>
       </ul>
     </header>
-  )
+  );
 }
