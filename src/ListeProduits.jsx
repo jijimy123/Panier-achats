@@ -1,4 +1,4 @@
-import "./ListeProduits.css";
+import "./ListeProduits.scss";
 import Produit from "./Produit";
 import tabProduits from "./data/produits.json";
 
@@ -10,7 +10,7 @@ export default function ListeProduits(props) {
         {tabProduits.map((prd) => (
           <Produit id={prd.id} nom={prd.nom} prix={prd.prix} />
         ))}
-        {/* <Produit nom="T-shirt bio pour enfants" prix="19.95" id="prd002" /> */}
+        {/* <Produit nom="T-shirt bio pour enfants" prix="19.95" id="produit002" /> */}
       </ul>
     </div>
   );
