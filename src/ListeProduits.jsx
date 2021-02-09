@@ -8,7 +8,13 @@ export default function ListeProduits(props) {
       <h2>Produits disponibles</h2>
       <ul>
         {tabProduits.map((prd) => (
-          <Produit id={prd.id} nom={prd.nom} prix={prd.prix} />
+          <Produit
+            key={prd.id}
+            panier={props.etatPanier}
+            id={prd.id}
+            nom={prd.nom}
+            prix={prd.prix}
+          />
         ))}
         {/* <Produit nom="T-shirt bio pour enfants" prix="19.95" id="produit002" /> */}
       </ul>
