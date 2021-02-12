@@ -39,17 +39,15 @@ function retournerInfoPanier(pan) {
   }, 0);
 
   // Sous-total
-  let sousTotal = article
-    .reduce(
-      (accumulateur, articleCourant) =>
-        articleCourant.prix * articleCourant.qte + accumulateur,
-      0
-    )
-    .toFixed(2);
+  let sousTotal = article.reduce(
+    (accumulateur, articleCourant) =>
+      articleCourant.prix * articleCourant.qte + accumulateur,
+    0
+  );
   info.st = sousTotal.toFixed(2);
 
   // TPS
-  let tps = (sousTotal * 0.05).toFixed(2);
+  let tps = sousTotal * 0.05;
   info.tps = tps.toFixed(2);
 
   // TVQ
