@@ -12,8 +12,11 @@ export default function Produit(props) {
     }
 
     // Maintenant il faut changer l'état du panier avec setPanier
-    setPanier(panier);
-    console.log(panier);
+    // Il faut passer a setPanier un NOUVEL objet (obtenu par clonage)
+
+    setPanier(JSON.parse(JSON.stringify(panier))); // OU setPanier({...panier});
+    //const nouveauPanier = Object.assign({}, panier);
+    //setPanier(nouveauPanier);
   }
 
   return (

@@ -10,7 +10,7 @@ export default function ListeProduits(props) {
         {tabProduits.map((prd) => (
           <Produit
             key={prd.id}
-            panier={props.etatPanier}
+            etatPanier={props.etatPanier}
             id={prd.id}
             nom={prd.nom}
             prix={prd.prix}
