@@ -2,16 +2,25 @@ import Entete from "./Entete";
 import Pied2Page from "./Pied2Page";
 import ListeProduits from "./ListeProduits";
 import "./Page.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Page() {
-  // Exemplede comment je vais stocker les articles dans le panier
-  // const testPanier = {
-  //   prd001: { prix: 17.99, qte: 3 },
-  //   prd002: { prix: 19.95, qte: 1 },
-  // };
+export default function Page(props) {
+  // Remarquez l'initialisation "paresseuse" (lazy initialization)
+  const etatPanier = useState(() => {
+    const panierLS = window.localStorage.getItem("panier");
+    return panierLS !== null ? JSON.parse(panierLS) : {};
+  });
+  const [panier, setPanier] = etatPanier;
 
-  const etatPanier = useState({});
+  // Sauvegarder le panier dans localStorage
+  // Comme ce code est un effet secondaire de votre composant
+  // (qui doit etre execute a chaque mutation du panier) la bonne facon de le
+  // coder en repectant la maniere React est d'utiliser un hook specialise  "useEffect"
+  useEffect(
+    () => window.localStorage.setItem("panier", JSON.stringify(panier)),
+    [panier]
+  ); // tableau des deps (dependances)
+
   return (
     <div className="Page">
       <Entete etatPanier={etatPanier} />

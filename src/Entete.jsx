@@ -22,8 +22,7 @@ export default function Entete(props) {
   // };
 
   // OU
-  const basculerSommairePanier = () =>
-    setCacheSommaire(cacheSommaire ? false : true);
+  const basculerSommairePanier = () => setCacheSommaire(!cacheSommaire);
 
   // Acceder à l'état du panier qui est reçu dans les props
   const [panier, setPanier] = props.etatPanier;
