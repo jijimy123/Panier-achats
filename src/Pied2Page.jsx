@@ -1,8 +1,12 @@
-import "./Pied2Page.scss";
+import './Pied2Page.scss';
 
 export default function Pied2Page(props) {
-  // Obtenir l'année courante
-  const annee = new Date().getFullYear();
+    // Obtenir l'année courante
+    const annee = (new Date()).getFullYear();
 
-  return <footer>&copy; {annee} - TIM</footer>;
+    return (
+        <footer>
+            &copy; {annee}
+        </footer>
+    );
 }

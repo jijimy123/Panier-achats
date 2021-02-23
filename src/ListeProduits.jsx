@@ -2,7 +2,8 @@ import "./ListeProduits.scss";
 import Produit from "./Produit";
 import tabProduits from "./data/produits.json";
 
-export default function ListeProduits(props) {
+function ListeProduits(props) {
+  //console.log("Panier dans ListeProduits", props.etatPanier);
   return (
     <div className="ListeProduits">
       <h2>Produits disponibles</h2>
@@ -16,8 +17,9 @@ export default function ListeProduits(props) {
             prix={prd.prix}
           />
         ))}
-        {/* <Produit nom="T-shirt bio pour enfants" prix="19.95" id="produit002" /> */}
       </ul>
     </div>
   );
 }
+
+export default ListeProduits;

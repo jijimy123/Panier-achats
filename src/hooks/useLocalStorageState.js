@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 /**
- *
- * @param {*} valeurInitiale Valeur quelconque avec laquelle on veut initialiser l'etat
- * @param {string} etiquetteLs Chaine de caractere pour l'etiquette localStorage
- *
- * @returns {array} tableau retourne par useState
+ * Obtient un état React qui sera sauvegardé dans localStorage
+ * 
+ * @param {*} valeurInitiale valeur quelconque avec laquelle on veut initialiser l'état
+ * @param {string} etiquetteLS chaîne de caractère pour l'étiquette localStorage
+ * 
+ * @returns {array} tableau retourné par useState
  */
-export default function useLocalStorageState(valeurInitiale, etiquetteLs) {
+export default function useLocalStorageState(valeurInitiale, etiquetteLS) {
   const [etat, setEtat] = useState(
-    () => JSON.parse(window.localStorage.getItem(etiquetteLs)) || valeurInitiale
+    () => JSON.parse(window.localStorage.getItem(etiquetteLS)) || valeurInitiale
   );
 
   useEffect(
-    () => window.localStorage.setItem(etiquetteLs, JSON.stringify(etat)),
-    [etat, etiquetteLs]
+    () => window.localStorage.setItem(etiquetteLS, JSON.stringify(etat)),
+    [etat, etiquetteLS]
   );
 
-  // Retourner l'etat
+  // Retourner l'état
   return [etat, setEtat];
 }
